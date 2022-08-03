@@ -8,20 +8,19 @@ class GetUsersResponse (
     @SerializedName("img") val userImage: String,
     @SerializedName("name") val name: String,
     @SerializedName("username") val userName: String
-){
+)
 
-    fun GetUsersResponse.asModel(): UserContactModel {
-        return UserContactModel(
-            id = id,
-            image=userImage,
-            name = name,
-            userName = userName
-        )
-    }
+fun GetUsersResponse.asModel(): UserContactModel {
+    return UserContactModel(
+        id = id,
+        image=userImage,
+        name = name,
+        userName = userName
+    )
+}
 
-    fun List<GetUsersResponse>.asListModel(): List<UserContactModel> {
-        return map {
-            it.asModel()
-        }
+fun List<GetUsersResponse>.asListModel(): List<UserContactModel> {
+    return map {
+        it.asModel()
     }
 }

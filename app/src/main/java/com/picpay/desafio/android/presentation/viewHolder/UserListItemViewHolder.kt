@@ -19,17 +19,14 @@ class UserListItemViewHolder(
         with(binding) {
             name.text = contactModel.name
             username.text = contactModel.userName
-            progressBar.visibility = View.VISIBLE
             Picasso.get()
                 .load(contactModel.image)
                 .error(R.drawable.ic_round_account_circle)
                 .into(picture, object : Callback {
                     override fun onSuccess() {
-                        progressBar.visibility = View.GONE
                     }
 
                     override fun onError(e: Exception?) {
-                        progressBar.visibility = View.GONE
                     }
                 })
         }

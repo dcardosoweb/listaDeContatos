@@ -42,18 +42,4 @@
         app:layout_constraintTop_toBottomOf="@+id/username"
         tools:text="Name Surname" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="@dimen/none"
-        android:layout_height="@dimen/none"
-        android:layout_marginStart="@dimen/margin_minimal"
-        android:layout_marginTop="@dimen/margin_minimal"
-        android:layout_marginEnd="@dimen/margin_minimal"
-        android:layout_marginBottom="@dimen/margin_minimal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/picture"
-        app:layout_constraintEnd_toEndOf="@+id/picture"
-        app:layout_constraintStart_toStartOf="@+id/picture"
-        app:layout_constraintTop_toTopOf="@+id/picture" />
 </androidx.constraintlayout.widget.ConstraintLayout>
