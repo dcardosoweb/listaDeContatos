@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Sizes-->
+    <dimen name="none">0dp</dimen>
+    <dimen name="user_avatar_default_size">52dp</dimen>
+
+    <!--Margins-->
+    <dimen name="margin_minimal">8dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="margin_medium">24dp</dimen>
+    <dimen name="margin_big">48dp</dimen>
+
+</resources>

@@ -1,4 +1,4 @@
-package com.picpay.desafio.android
+package com.picpay.desafio.android.presentation.activity
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.picpay.desafio.android.PicPayService
+import com.picpay.desafio.android.R
+import com.picpay.desafio.android.User
+import com.picpay.desafio.android.presentation.adapter.UserListAdapter
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
