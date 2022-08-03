@@ -1,38 +1,36 @@
 package com.picpay.desafio.android.presentation.adapter
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
-import com.picpay.desafio.android.R
-import com.picpay.desafio.android.User
-import com.picpay.desafio.android.UserListDiffCallback
+import androidx.recyclerview.widget.ListAdapter
+import com.picpay.desafio.android.presentation.model.UserContactModel
 import com.picpay.desafio.android.presentation.viewHolder.UserListItemViewHolder
 
-class UserListAdapter : RecyclerView.Adapter<UserListItemViewHolder>() {
-
-    var users = emptyList<User>()
-        set(value) {
-            val result = DiffUtil.calculateDiff(
-                UserListDiffCallback(
-                    field,
-                    value
-                )
-            )
-            result.dispatchUpdatesTo(this)
-            field = value
-        }
+class UserListAdapter: ListAdapter<UserContactModel, UserListItemViewHolder>(DIFF_UTIL) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListItemViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item_user, parent, false)
-
-        return UserListItemViewHolder(view)
+        return UserListItemViewHolder.createInstance(parent)
     }
 
     override fun onBindViewHolder(holder: UserListItemViewHolder, position: Int) {
-        holder.bind(users[position])
+        holder.bind(currentList[position])
     }
 
-    override fun getItemCount(): Int = users.size
+    companion object {
+        val DIFF_UTIL = object : DiffUtil.ItemCallback<UserContactModel>() {
+            override fun areItemsTheSame(
+                oldItem: UserContactModel,
+                newItem: UserContactModel
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(
+                oldItem: UserContactModel,
+                newItem: UserContactModel
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 }

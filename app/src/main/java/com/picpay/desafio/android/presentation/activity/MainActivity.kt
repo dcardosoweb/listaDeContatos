@@ -62,11 +62,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onResume() {
         super.onResume()
 
-        recyclerView = findViewById(R.id.recyclerView)
-        progressBar = findViewById(R.id.user_list_progress_bar)
+
 
         adapter = UserListAdapter()
-        recyclerView.adapter = adapter
+
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         progressBar.visibility = View.VISIBLE
@@ -85,7 +84,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
                     progressBar.visibility = View.GONE
 
-                    adapter.users = response.body()!!
+                    
                 }
             })
     }
