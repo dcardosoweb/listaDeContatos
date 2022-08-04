@@ -1,8 +1,6 @@
 package com.picpay.desafio.android.presentation.viewHolder
 
-
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R

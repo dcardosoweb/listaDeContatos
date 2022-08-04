@@ -92,6 +92,7 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$picasso_version"
     implementation "de.hdodenhof:circleimageview:$circleimageview_version"
     implementation "com.blankj:utilcodex:$blankj_version"
+    implementation "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt_version"
 
     testImplementation "junit:junit:$junit_version"
     testImplementation "androidx.arch.core:core-testing:$core_testing_version"
@@ -107,3 +108,4 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit-ktx:$test_ext_junit_ktx_version"
     androidTestImplementation "androidx.test:rules:$test_rules_version"
 }
+preBuild.dependsOn 'detekt'

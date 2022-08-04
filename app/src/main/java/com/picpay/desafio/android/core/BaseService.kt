@@ -24,8 +24,6 @@ object BaseService {
     private const val CACHE_SIZE = (5 * 1024 * 1024).toLong()
     private const val baseUrl = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
 
-    fun getCache(context: Context) = Cache(context.cacheDir, CACHE_SIZE)
-
     private val gson: Gson = GsonBuilder()
         .setLongSerializationPolicy(LongSerializationPolicy.DEFAULT)
         .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
@@ -64,6 +62,8 @@ object BaseService {
         requestBuilder.header("Content-Type", "application/json")
         chain.proceed(requestBuilder.build())
     }
+
+    fun getCache(context: Context) = Cache(context.cacheDir, CACHE_SIZE)
 
     fun getOkHttpClient(cache: Cache): OkHttpClient.Builder =
         OkHttpClient.Builder()

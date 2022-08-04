@@ -11,7 +11,6 @@ class ContactsAppTest : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidLogger()
             androidContext(this@ContactsAppTest)
         }
         TestModuleInitializer.init()

@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">PicPay</string>
     <string name="title">Contatos</string>
-    <string name="error">Ocorreu um erro. Tente novamente.</string>
     <string name="information_not_permission">Sem permissão para a operação</string>
     <string name="information_not_registered">Acesso invalido</string>
     <string name="information_not_authorized">Não autorizado</string>
     <string name="generic_error_message">Ocorreu um erro ao executar a operação</string>
+    <string name="empty_contact_list">A lista de contatos esta vazia</string>
 </resources>

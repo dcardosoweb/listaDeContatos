@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.blankj.utilcode.util.StringUtils
+import com.picpay.desafio.android.R
 import com.picpay.desafio.android.data.service.response.GetUsersResponse
 import com.picpay.desafio.android.data.service.response.asListModel
 import com.picpay.desafio.android.databinding.FragmentContactsBinding
@@ -53,6 +55,8 @@ class ContactsFragment : Fragment() {
         with(binding) {
             when (status) {
                 is Result.InProgress -> {
+                    recyclerView.gone()
+                    infoMessage.gone()
                     progressBar.visible()
                 }
                 is Result.Success -> {
@@ -60,16 +64,25 @@ class ContactsFragment : Fragment() {
                     val contactList = status.data
 
                     if(contactList.isNullOrEmpty()){
-
+                        infoMessage.text = StringUtils.getString(R.string.empty_contact_list)
+                        infoMessage.visible()
+                        progressBar.gone()
                     }else {
                         var adapter = UserListAdapter()
-                        adapter.submitList(contactList.asListModel())
+                        adapter.submitList(contactList?.asListModel())
                         recyclerView.adapter = adapter
                         recyclerView.layoutManager = LinearLayoutManager(context)
                         recyclerView.visible()
                     }
                 }
                 is Result.Error -> {
+                    val exception = status.exception
+                    if(exception.message.isNullOrEmpty()){
+                        infoMessage.text = StringUtils.getString(R.string.generic_error_message)
+                    }else{
+                        infoMessage.text = exception.message
+                    }
+                    infoMessage.visible()
                     progressBar.gone()
                 }
                 else -> {
