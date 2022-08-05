@@ -69,7 +69,7 @@ class ContactsFragment : Fragment() {
                         progressBar.gone()
                     }else {
                         var adapter = UserListAdapter()
-                        adapter.submitList(contactList?.asListModel())
+                        adapter.submitList(contactList.asListModel())
                         recyclerView.adapter = adapter
                         recyclerView.layoutManager = LinearLayoutManager(context)
                         recyclerView.visible()
